@@ -1,0 +1,19 @@
+Yes, in the scenario where you have your API Gateway outside of your VPC and you want to access resources within your VPC (such as your Fargate containers), you can use either a VPC Endpoint or a VPC Link, depending on your specific use case and requirements.
+
+Here's a brief explanation of each:
+
+VPC Endpoint:
+
+A VPC Endpoint allows you to privately connect your VPC to supported AWS services without requiring internet gateway, NAT devices, VPN connections, or AWS Direct Connect.
+If you want to access resources within your VPC (e.g., Fargate containers) from the API Gateway without traversing the public internet, you can use a VPC Endpoint.
+You would create a VPC Endpoint for the API Gateway service, which establishes a private connection between your VPC and the API Gateway.
+VPC Link:
+
+A VPC Link is used specifically with API Gateway to expose HTTP/HTTPS resources within your VPC to the internet through API Gateway.
+If you want to expose your Fargate containers (hosted within your VPC) via API Gateway to the public internet, you would set up a VPC Link.
+This allows your API Gateway to securely communicate with resources in your VPC while still being accessible from the internet.
+In your scenario, if you want to access resources within your VPC (Fargate containers) from the Amazon API Gateway, you would typically use a VPC Endpoint. This provides a secure and private connection between your API Gateway and your VPC without exposing your resources to the public internet.
+
+If you want to expose your Fargate containers via API Gateway to the internet, you would set up a VPC Link. This allows your API Gateway to securely communicate with resources within your VPC while still being accessible from the internet.
+
+Both VPC Endpoint and VPC Link serve different purposes and can be used based on your specific architecture and security requirements.
